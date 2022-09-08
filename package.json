@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.3.1",
+    "autoprefixer": "^10.4.8",
+    "nuxt": "3.0.0-rc.6",
+    "postcss": "^8.4.16"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.0",
+    "daisyui": "^2.22.0",
+    "lucide-vue-next": "^0.84.0",
+    "pinia": "^2.0.18"
+  }
+}
