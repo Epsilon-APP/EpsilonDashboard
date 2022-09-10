@@ -1,29 +1,16 @@
-# Stage 1 - build
-FROM node:16 AS builder
-WORKDIR /app
+FROM node:17-alpine
 
-COPY package*.json ./
-
-RUN  npm install
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
 
 COPY . .
 
+RUN npm ci && npm cache clean --force
 RUN npm run build
-
-# Stage 2 - production
-FROM node:16 AS final
-WORKDIR /app
-
-ADD package.json .
-ADD nuxt.config.ts .
-
-COPY --from=builder /app/.nuxt ./.nuxt
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/static ./static
 
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
 
-EXPOSE 3000
+EXPOSE 3000 
 
-CMD ["npm", "start"]
+ENTRYPOINT ["node", ".output/server/index.mjs"]
