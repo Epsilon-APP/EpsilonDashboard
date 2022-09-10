@@ -15,7 +15,7 @@ FROM node:16 AS final
 WORKDIR /app
 
 ADD package.json .
-ADD nuxt.config.js .
+ADD nuxt.config.ts .
 
 COPY --from=builder /app/.nuxt ./.nuxt
 COPY --from=builder /app/node_modules ./node_modules
