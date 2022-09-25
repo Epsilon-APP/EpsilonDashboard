@@ -4,6 +4,7 @@ export default () => {
   function getInstances(): any {
     return $fetch('/instance/get_all', { baseURL: controller, parseResponse: JSON.parse })
       .then(res => res['instances'])
+      .catch(err => [])
   }
   
   function openInstance(template): any {
