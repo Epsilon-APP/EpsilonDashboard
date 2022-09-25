@@ -3,17 +3,29 @@ export default () => {
 
   function getTemplates(): any {
     return $fetch('/templates', { baseURL: templates })
-      .catch(err => [])
+      .catch(err => {
+        console.error(err)
+
+        return []
+      })
   }
 
   function getParents(): any {
     return $fetch('/parents', { baseURL: templates })
-      .catch(err => [])
+      .catch(err => {
+        console.error(err)
+
+        return []
+      })
   }
 
   function getMaps(): any {
     return $fetch('/maps', { baseURL: templates })
-      .catch(err => [])
+      .catch(err => {
+        console.error(err)
+
+        return []
+      })
   }
 
   function createTemplate(template): any {
