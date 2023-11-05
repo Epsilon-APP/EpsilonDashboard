@@ -1,5 +1,5 @@
 <template>
-  <input v-model="modelValue" @change="handleChange" type="checkbox" class="checkbox" :checked="checked"/>
+  <input @change="handleChange" type="checkbox" class="checkbox" :checked="checked"/>
 </template>
 
 <script setup lang="ts">
@@ -17,9 +17,4 @@ function handleChange(event) {
   emit('change', value)
   emit('update:modelValue', value)
 }
-
-watch(() => props.checked, (value) => {
-  emit('change', value)
-  emit('update:modelValue', value)
-})
 </script>

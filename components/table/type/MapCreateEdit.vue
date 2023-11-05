@@ -11,7 +11,7 @@
         <tr class="hover">
           <td>{{ item.name }}</td>
           <th>
-            <InputCheckbox @change="handleCheckbox($event, item.name)" :checked="disable(item.name)" :disabled="disable(item.name)"/>
+            <InputCheckbox @change="handleCheckbox($event, item.name)" :checked="checked(item.name)" :disabled="disable(item.name)"/>
           </th>
         </tr>
       </TableDefault>
@@ -41,8 +41,11 @@ const itemsCheckbox = ref(
 
 onMounted(update)
 
+function checked(name) {
+  return props.currents.includes(name)
+}
+
 function disable(name) {
-  console.log(select.value === name, name)
   return select.value === name
 }
 
