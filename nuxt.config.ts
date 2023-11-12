@@ -16,8 +16,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    epsilonControllerHost: `${process.env.HOST_CONTROLLER}:8000` || 'localhost:8000',
-    epsilonTemplateHost: `${process.env.HOST_TEMPLATE}:8000` || 'localhost:8100',
+    epsilonControllerHost: process.env.HOST_CONTROLLER != null ? `${process.env.HOST_CONTROLLER}:8000` : 'localhost:8000',
+    epsilonTemplateHost: process.env.HOST_TEMPLATE != null ? `${process.env.HOST_TEMPLATE}:8000` : 'localhost:8000',
     
     public: {
       domain: process.env.DOMAIN || 'epsilon-srv.me',
