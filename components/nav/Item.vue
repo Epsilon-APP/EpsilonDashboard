@@ -24,7 +24,6 @@ defineProps({
 })
 
 const env = useRuntimeConfig()
-console.log(env)
 </script>
 
 <style scoped>
