@@ -21,7 +21,7 @@
           <td>{{ item.resources.minimum.ram }}Mo - {{ item.resources.maximum.ram }} Mo</td>
           <th>
             <div class="flex gap-5">
-              <a target="_blank" :href="'https://explorer.' + env.domain + '/templates/' + item.name">
+              <a target="_blank" :href="'http://explorer.' + env.domain + '/templates/' + item.name">
                 <button class="btn btn-outline btn-info btn-xs">
                   Explorer
                 </button>
@@ -49,6 +49,8 @@ const fields = ["Nom", "Parent", "Type", "CPU", "RAM", ""]
 defineProps({
   items: {type: Array<Object>, required: true}
 })
+
+const env = useRuntimeConfig()
 
 const deleteTemplateModal = ref()
 const buildTemplateModal = ref()
